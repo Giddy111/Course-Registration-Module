@@ -1,6 +1,6 @@
 // ignore_for_file: camel_case_types
 
-import 'package:course_registration/home/home.dart';
+import 'package:course_registration/login/login.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 
@@ -13,7 +13,7 @@ class Startup_SplashScreen extends StatelessWidget {
     Future.delayed(const Duration(seconds: 8), () {
       Navigator.pushNamedAndRemoveUntil(
         context,
-        Home.routeName,
+        LogIn.routeName,
         (route) => false,
       );
     });
