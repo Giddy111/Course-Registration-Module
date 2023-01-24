@@ -40,10 +40,10 @@ class _ConfirmationScreenState extends State<ConfirmationScreen> {
               ),
               ElevatedButton(
                 onPressed: (() {
-                  Navigator.of(context).pushReplacement(
-                    MaterialPageRoute(
-                      builder: (context) => const Home(),
-                    ),
+                  Navigator.pushNamedAndRemoveUntil(
+                    context,
+                    Home.routeName,
+                    (route) => false,
                   );
                 }),
                 child: const Text(
