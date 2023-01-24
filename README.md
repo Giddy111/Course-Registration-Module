@@ -3,7 +3,7 @@
 # Course Registration Module
  A Course Registration Module for School Apps
 
-# Applications and Codebases:
+# Applications and Codebase:
  - Visual Studio Code
  - Android Studio 
  - Flutter
