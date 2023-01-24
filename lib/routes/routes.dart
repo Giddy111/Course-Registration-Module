@@ -1,3 +1,4 @@
+import 'package:course_registration/home/confirmation%20screen.dart';
 import 'package:course_registration/home/course_registration.dart';
 import 'package:course_registration/home/home.dart';
 import 'package:course_registration/startup/startup_screen.dart';
@@ -10,4 +11,5 @@ Map<String, WidgetBuilder> routes = {
   //Main App Pages
   Home.routeName: (context) => const Home(),
   CourseRegistration.routeName: (context) => const CourseRegistration(),
+  ConfirmationScreen.routeName: (context) => const ConfirmationScreen(),
 };

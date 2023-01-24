@@ -1,5 +1,6 @@
 // ignore_for_file: non_constant_identifier_names
 
+import 'package:course_registration/home/confirmation%20screen.dart';
 import 'package:course_registration/model/courses%20model.dart';
 import 'package:course_registration/style/constants.dart';
 import 'package:flutter/material.dart';
@@ -76,23 +77,51 @@ class _CourseRegistrationState extends State<CourseRegistration> {
         centerTitle: true,
       ),
       body: SafeArea(
-        child: Container(
-          padding: const EdgeInsets.only(
-            top: kDefaultPadding / 2,
-          ),
-          child: ListView.builder(
-            physics: const BouncingScrollPhysics(),
-            itemCount: courses.length,
-            itemBuilder: (BuildContext context, int index) {
-              return CourseItem(
-                courses[index].courseTitle,
-                courses[index].courseCode,
-                courses[index].creditLoad,
-                courses[index].isSelected,
-                index,
-              );
-            },
-          ),
+        child: Column(
+          children: [
+            Expanded(
+              child: ListView.builder(
+                physics: const BouncingScrollPhysics(),
+                itemCount: courses.length,
+                itemBuilder: (BuildContext context, int index) {
+                  return CourseItem(
+                    courses[index].courseTitle,
+                    courses[index].courseCode,
+                    courses[index].creditLoad,
+                    courses[index].isSelected,
+                    index,
+                  );
+                },
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.symmetric(
+                horizontal: 25,
+                vertical: 15.0,
+              ),
+              child: ElevatedButton(
+                onPressed: (() {
+                  Navigator.of(context).pushReplacement(
+                    MaterialPageRoute(
+                      builder: (context) => const ConfirmationScreen(),
+                    ),
+                  );
+                }),
+                child: Row(
+                  children: [
+                    const Text(
+                      "Register Courses",
+                    ),
+                    kHalfWidthSizedBox,
+                    Icon(
+                      Icons.check_circle_rounded,
+                      color: Colors.green[700],
+                    ),
+                  ],
+                ),
+              ),
+            )
+          ],
         ),
       ),
     );
@@ -119,6 +148,8 @@ class _CourseRegistrationState extends State<CourseRegistration> {
           Text(
             courseCode,
           ),
+          kWidthSizedBox,
+          kWidthSizedBox,
           Text(
             creditLoad,
           ),
@@ -133,6 +164,19 @@ class _CourseRegistrationState extends State<CourseRegistration> {
               Icons.check_circle_outline_rounded,
               color: Colors.grey,
             ),
+      onTap: (() {
+        setState(() {
+          courses[index].isSelected = !courses[index].isSelected;
+          if (courses[index].isSelected == true) {
+            selectedCourses.add(
+              CourseModel(courseTitle, courseCode, creditLoad, true),
+            );
+          } else if (courses[index].isSelected == false) {
+            selectedCourses.removeWhere(
+                (element) => element.courseTitle == courses[index].courseTitle);
+          }
+        });
+      }),
     );
   }
 }
