@@ -27,7 +27,7 @@ class _ConfirmationScreenState extends State<ConfirmationScreen> {
                 child: Icon(
                   Icons.check_circle,
                   color: Colors.green,
-                  size: 50,
+                  size: 200,
                 ),
               ),
               kSizedBox,
