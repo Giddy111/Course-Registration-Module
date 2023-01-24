@@ -23,78 +23,64 @@ class _LogInState extends State<LogIn> {
       backgroundColor: Colors.white,
       body: SingleChildScrollView(
         child: SafeArea(
-          child: Column(
-            children: [
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Container(
-                    height: MediaQuery.of(context).size.height / 4,
-                    decoration: const BoxDecoration(
-                      image: DecorationImage(
-                        image: AssetImage(
-                          "assets/Images/Light Mode Images/login page/Frame 1.jpg",
+          child: Container(
+            margin: EdgeInsets.only(
+              top: MediaQuery.of(context).size.height / 4,
+            ),
+            child: Column(
+              children: [
+                Text(
+                  "Welcome!",
+                  style: TextStyle(
+                    fontSize: 30,
+                    color: Theme.of(context).primaryColor,
+                  ),
+                ),
+                const SizedBox(
+                  height: 10,
+                ),
+                const Text(
+                  "Please fill in your details to log in",
+                ),
+                const SizedBox(
+                  height: 20,
+                ),
+                Container(
+                  margin: const EdgeInsets.fromLTRB(10, 0, 10, 25),
+                  alignment: Alignment.center,
+                  child: Column(
+                    children: [
+                      Form(
+                        key: _formKey,
+                        child: Column(
+                          children: <Widget>[
+                            const RegNumberField(),
+                            const SizedBox(
+                              height: 20,
+                            ),
+                            const PasswordField(),
+                            const SizedBox(
+                              height: 20,
+                            ),
+                            LoginNeumorphicButton(
+                              onPressed: (() {
+                                if (_formKey.currentState!.validate()) {
+                                  Navigator.pushNamedAndRemoveUntil(
+                                    context,
+                                    Home.routeName,
+                                    (route) => false,
+                                  );
+                                }
+                              }),
+                            ),
+                          ],
                         ),
                       ),
-                    ),
+                    ],
                   ),
-                  const SizedBox(
-                    height: 20,
-                  ),
-                  Text(
-                    "Welcome Back!",
-                    style: TextStyle(
-                      fontSize: 30,
-                      color: Theme.of(context).primaryColor,
-                    ),
-                  ),
-                  const SizedBox(
-                    height: 10,
-                  ),
-                  const Text(
-                    "Please fill in your details to log in",
-                  )
-                ],
-              ),
-              const SizedBox(
-                height: 20,
-              ),
-              Container(
-                margin: const EdgeInsets.fromLTRB(10, 0, 10, 25),
-                alignment: Alignment.center,
-                child: Column(
-                  children: [
-                    Form(
-                      key: _formKey,
-                      child: Column(
-                        children: <Widget>[
-                          const RegNumberField(),
-                          const SizedBox(
-                            height: 20,
-                          ),
-                          const PasswordField(),
-                          const SizedBox(
-                            height: 20,
-                          ),
-                          LoginNeumorphicButton(
-                            onPressed: (() {
-                              if (_formKey.currentState!.validate()) {
-                                Navigator.pushNamedAndRemoveUntil(
-                                  context,
-                                  Home.routeName,
-                                  (route) => false,
-                                );
-                              }
-                            }),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ],
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
         ),
       ),

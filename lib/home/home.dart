@@ -161,6 +161,26 @@ class HomeState extends State<Home> {
         scrollDirection: Axis.vertical,
         child: Column(
           children: [
+            Container(
+              child: Column(
+                children: [
+                  Text(
+                    "Welcome, Okoro Henry Chukwuma",
+                    style: TextStyle(
+                      fontSize: 20,
+                      fontWeight: FontWeight.w500,
+                    ),
+                  ),
+                  Text(
+                    "Please fill in the fields below to proceed",
+                    style: TextStyle(
+                      fontSize: 14,
+                      fontWeight: FontWeight.w300,
+                    ),
+                  ),
+                ],
+              ),
+            ),
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [

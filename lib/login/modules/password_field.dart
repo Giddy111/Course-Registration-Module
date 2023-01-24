@@ -23,6 +23,7 @@ class _PasswordFieldState extends State<PasswordField> {
     return TextFormField(
       controller: passwordController,
       keyboardType: TextInputType.text,
+      textInputAction: TextInputAction.done,
       maxLength: 16,
       maxLengthEnforcement: MaxLengthEnforcement.enforced,
       obscureText: !_visiblePassword,
@@ -87,8 +88,13 @@ class _PasswordFieldState extends State<PasswordField> {
         ),
       ),
       validator: (value) {
+        RegExp passwordPattern = RegExp(
+          r'^.{8,}$',
+        );
         if (value!.isEmpty) {
-          return "Enter your password!!";
+          return "Enter your password";
+        } else if (!passwordPattern.hasMatch(value)) {
+          return "Password must be at least 8 characters";
         }
         return null;
       },

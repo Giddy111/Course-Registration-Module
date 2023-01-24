@@ -12,6 +12,7 @@ class RegNumberField extends StatelessWidget {
     return TextFormField(
       controller: regNumbercontroller,
       keyboardType: TextInputType.number,
+      textInputAction: TextInputAction.done,
       autocorrect: true,
       enableSuggestions: false,
       decoration: RegNumberThemeHelper().textInputDecoration(
