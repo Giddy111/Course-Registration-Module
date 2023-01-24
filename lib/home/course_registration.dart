@@ -97,7 +97,7 @@ class _CourseRegistrationState extends State<CourseRegistration> {
             Padding(
               padding: const EdgeInsets.symmetric(
                 horizontal: 25,
-                vertical: 15.0,
+                vertical: 10.0,
               ),
               child: ElevatedButton(
                 onPressed: (() {
@@ -107,17 +107,8 @@ class _CourseRegistrationState extends State<CourseRegistration> {
                     ),
                   );
                 }),
-                child: Row(
-                  children: [
-                    const Text(
-                      "Register Courses",
-                    ),
-                    kHalfWidthSizedBox,
-                    Icon(
-                      Icons.check_circle_rounded,
-                      color: Colors.green[700],
-                    ),
-                  ],
+                child: const Text(
+                  "Register Courses",
                 ),
               ),
             )

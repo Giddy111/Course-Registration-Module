@@ -1,5 +1,4 @@
-import 'dart:html';
-
+// ignore_for_file: file_names
 import 'package:course_registration/home/home.dart';
 import 'package:course_registration/style/constants.dart';
 import 'package:flutter/material.dart';
@@ -18,57 +17,41 @@ class _ConfirmationScreenState extends State<ConfirmationScreen> {
     return Scaffold(
       backgroundColor: Colors.white,
       body: SafeArea(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            const Spacer(),
-            Center(
-              child: Container(
+        child: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              const SizedBox(
                 width: 400,
                 height: 200,
-                decoration: const BoxDecoration(
-                  image: DecorationImage(
-                    image: AssetImage(
-                      "assets/animations/successful-splash.gif",
-                    ),
-                  ),
-                  shape: BoxShape.circle,
+                child: Icon(
+                  Icons.check_circle,
+                  color: Colors.green,
+                  size: 50,
                 ),
               ),
-            ),
-            const Spacer(),
-            Center(
-                child: Column(
-              children: [
-                const Text(
-                  "You have Successfully registered your courses",
-                  style: TextStyle(
-                    fontSize: 18,
-                    fontWeight: FontWeight.w400,
-                  ),
+              kSizedBox,
+              const Text(
+                "You have Successfully registered your courses",
+                style: TextStyle(
+                  fontSize: 18,
+                  fontWeight: FontWeight.w400,
                 ),
-                ElevatedButton(
-                  onPressed: (() {
-                    Navigator.of(context).pushReplacement(
-                        MaterialPageRoute(builder: (context) => const Home()));
-                  }),
-                  child: Row(
-                    children: const <Widget>[
-                      Text(
-                        "Back to Home",
-                      ),
-                      kHalfWidthSizedBox,
-                      Icon(
-                        Icons.home_rounded,
-                        color: Colors.white,
-                      )
-                    ],
-                  ),
+              ),
+              ElevatedButton(
+                onPressed: (() {
+                  Navigator.of(context).pushReplacement(
+                    MaterialPageRoute(
+                      builder: (context) => const Home(),
+                    ),
+                  );
+                }),
+                child: const Text(
+                  "Back to Home",
                 ),
-              ],
-            )),
-          ],
+              ),
+            ],
+          ),
         ),
       ),
     );
